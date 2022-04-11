@@ -18,7 +18,7 @@ describe('JSDateDating tests', () => {
     });
     describe('getStringWithTimezone', () =>{
         test('should be Europe/Rome', () =>{
-            const localDate = new Date(); // 로컬시간
+            const localDate = new Date();
             const utcNow = localDate.getTime() + (localDate.getTimezoneOffset() * 60 * 1000);
             const timezoneOffset = ( localDate.getTimezoneOffset() / -60);
             let diffTime = 1;
@@ -33,8 +33,8 @@ describe('JSDateDating tests', () => {
             let romeTimeDiff = diffTime * 60 * 60 * 1000;
             const romeNow = new Date(utcNow + romeTimeDiff);
 
-            const time1 = new JSDateDating().fromDate(romeNow).format('YYYY-MM-DD HH:mm:ss');  // js <-- 정답
-            const time2 = new JSDateDating().getStringWithTimezone(ENCTimezone.EUROPE_ROME, 'YYYY-MM-DD HH:mm:ss');  // test
+            const time1 = new JSDateDating().fromDate(romeNow).format('YYYY-MM-DD HH:mm:ss');
+            const time2 = new JSDateDating().getStringWithTimezone(ENCTimezone.EUROPE_ROME, 'YYYY-MM-DD HH:mm:ss');
 
             expect(time1).toEqual(time2);
         })
